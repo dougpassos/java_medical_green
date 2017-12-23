@@ -1,0 +1,33 @@
+-- Database: medical_green
+
+-- DROP DATABASE medical_green;
+
+CREATE DATABASE medical_green
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'Portuguese_Brazil.1252'
+       LC_CTYPE = 'Portuguese_Brazil.1252'
+       CONNECTION LIMIT = -1;
+
+
+
+-- Table: public.medicos
+
+-- DROP TABLE public.medicos;
+
+CREATE TABLE public.medicos
+(
+  id bigint NOT NULL DEFAULT nextval('seq_cod_med'::regclass),
+  cpf text NOT NULL,
+  nome text NOT NULL,
+  crm text NOT NULL,
+  fone text NOT NULL,
+  email text,
+  endereco text
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.medicos
+  OWNER TO postgres;
